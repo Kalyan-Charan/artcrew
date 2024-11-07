@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-image: url("/pexels-tomfisk-1519753.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    /* color: #fff; */
+    /* background-color: olivedrab; */
+    /* color: white; */
+}
+
+.nav-left a {
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+.nav-right a {
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('C:\Users\om\OneDrive\Desktop\anti-cheat\New folder\pexels-tomfisk-1519753.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.555);
+    padding: 50px;
+    color: white;
+}
+
+.overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.buttons .btn {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.buttons .btn:hover {
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .overlay p {
+        font-size: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-right {
+        margin-top: 10px;
+    }
+}

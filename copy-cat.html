@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashion Slider</title>
+
+  <!-- Swiper CSS -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" /> -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* Base styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .fashion-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Swiper slide styles */
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            transition: background-color 0.5s ease;
+        }
+
+        .swiper-slide[data-slide-bg-color] {
+            background-color: var(--slide-bg-color);
+        }
+
+        /* Slide title styles */
+        .fashion-slider-title {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            color: #fff;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .fashion-slider-title-text {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Slide image styles */
+        .fashion-slider-scale {
+            width: 80%;
+            height: auto;
+            max-width: 600px;
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+        }
+
+        .swiper-slide-active .fashion-slider-scale {
+            transform: scale(1);
+        }
+
+        /* Custom navigation buttons */
+        .fashion-slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 20;
+            fill: #fff;
+            transition: fill 0.3s ease;
+        }
+
+        .fashion-slider-button-prev {
+            left: 10px;
+        }
+
+        .fashion-slider-button-next {
+            right: 10px;
+        }
+
+        .fashion-slider-button:hover .fashion-slider-svg-wrap {
+            fill: #d7a594;
+        }
+
+        .fashion-slider-svg-circle-wrap circle {
+            stroke: #fff;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .fashion-slider-svg-arrow {
+            fill: #fff;
+            transition: fill 0.3s ease;
+        }
+
+        .fashion-slider-svg-line {
+            stroke: #fff;
+            stroke-width: 2;
+        }
+
+        .fashion-slider-button:hover .fashion-slider-svg-arrow,
+        .fashion-slider-button:hover .fashion-slider-svg-line {
+            fill: #d7a594;
+            stroke: #d7a594;
+        }
+        /* Basic Swiper Styles */
+        .swiper {
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        display: block;
+        }
+
+        .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+        }
+
+        .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        display: block;
+        }
+
+        /* Navigation buttons */
+        .swiper-button-next,
+        .swiper-button-prev {
+        position: absolute;
+        top: 50%;
+        width: 44px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #007aff;
+        }
+
+        .swiper-button-next {
+        right: 10px;
+        }
+
+        .swiper-button-prev {
+        left: 10px;
+        }
+
+        .swiper-button-disabled {
+        opacity: 0.35;
+        cursor: auto;
+        pointer-events: none;
+        }
+
+        /* Pagination */
+        .swiper-pagination {
+        position: absolute;
+        text-align: center;
+        transition: 0.3s opacity;
+        transform: translate3d(0, 0, 0);
+        z-index: 10;
+        bottom: 10px;
+        width: 100%;
+        }
+
+        .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #000;
+        opacity: 0.2;
+        cursor: pointer;
+        margin: 0 4px;
+        }
+
+        .swiper-pagination-bullet-active {
+        background: #007aff;
+        opacity: 1;
+        }
+
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Fashion slider container -->
+    <div class="fashion-slider">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide" data-slide-bg-color="#9FA051">
+            <div class="fashion-slider-title" data-swiper-parallax="-130%">
+              <div class="fashion-slider-title-text">Nike</div>
+            </div>
+            <div class="fashion-slider-scale">
+              <img src="images/nike.jpg" alt="Nike">
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide" data-slide-bg-color="#9B89C5">
+            <div class="fashion-slider-title" data-swiper-parallax="-130%">
+              <div class="fashion-slider-title-text">Puma</div>
+            </div>
+            <div class="fashion-slider-scale">
+              <img src="images/GET (1).png" alt="Puma">
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide" data-slide-bg-color="#D7A594">
+            <div class="fashion-slider-title" data-swiper-parallax="-130%">
+              <div class="fashion-slider-title-text">Yeeze</div>
+            </div>
+            <div class="fashion-slider-scale">
+              <img src="images/yeeze.jpg" alt="Yeeze">
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="fashion-slider-button-prev fashion-slider-button">
+          <!-- SVG for button -->
+        </div>
+        <div class="fashion-slider-button-next fashion-slider-button">
+          <!-- SVG for button -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> -->
+
+  <!-- Custom JS -->
+  <script src="scripts.js" defer></script>
+</body>
+</html>

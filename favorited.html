@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Cards</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+     <style>
+        /* Basic styling for the product container */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Styling for product cards */
+        .product-card {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Styling for product images */
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Styling for product titles */
+        .product-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        /* Styling for product prices */
+        .product-price {
+            font-size: 1.2em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        /* Styling for buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        /* Specific styling for the favorite button */
+        .favorite-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        /* Specific styling for the notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show notification styling */
+        .notification.show {
+            display: block;
+            opacity: 1;
+        }
+
+     </style>
+</head>
+<body>
+    <!-- Link to the Favorites Page -->
+    <nav>
+        <a href="favorites.html" class="favorites-link">View Favorites</a>
+    </nav>
+
+    <div class="product-container">
+        <!-- Example Product Cards -->
+        <div class="product-card" data-product-id="1">
+            <img src="product-image1.jpg" alt="Product Image" class="product-image">
+            <h2 class="product-title">Product 1</h2>
+            <p class="product-price">$29.99</p>
+            <div class="product-actions">
+                <button class="btn add-to-cart" onclick="addToCart('1')">Add to Cart</button>
+                <button class="btn buy-now" onclick="buyNow('1')">Buy Now</button>
+                <button class="btn favorite-button" onclick="toggleFavorite('1')">♡</button>
+                <button class="btn share" onclick="shareProduct('1')">Share</button>
+                <button class="btn options" onclick="showOptions('1')">⋮</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-product-id="2">
+            <img src="product-image2.jpg" alt="Product Image" class="product-image">
+            <h2 class="product-title">Product 2</h2>
+            <p class="product-price">$39.99</p>
+            <div class="product-actions">
+                <button class="btn add-to-cart" onclick="addToCart('2')">Add to Cart</button>
+                <button class="btn buy-now" onclick="buyNow('2')">Buy Now</button>
+                <button class="btn favorite-button" onclick="toggleFavorite('2')">♡</button>
+                <button class="btn share" onclick="shareProduct('2')">Share</button>
+                <button class="btn options" onclick="showOptions('2')">⋮</button>
+            </div>
+        </div>
+
+        <!-- Add more product cards as needed -->
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notification" class="notification"></div>
+
+    <script src="favorites.js"></script>
+</body>
+</html>

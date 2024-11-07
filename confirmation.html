@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Explore unique art pieces and supplies at Art Crew Store. Discover quality art materials, exclusive designs, and great deals. Shop now!">
+  <meta name="robots" content="index, follow">
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-07S9W13TEQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-07S9W13TEQ');
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+
+  <title>Order Confirmation</title>
+  <style>
+    body { padding: 20px; height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    .video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover; /* Ensures the video covers the entire area without distortion */
+    overflow: hidden; 
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      /* color: white; */
+      /* text-align: center; */
+      /* font-size: 2em; */
+      /* padding: 20px; */
+    }
+    .confirmation-header { text-align: center; margin-bottom: 30px; }
+    .order-details { border-top: 1px solid #ddd; padding-top: 20px; }
+    .order-item { border-bottom: 1px solid #ddd; padding: 15px 0; }
+    .order-item:last-child { border-bottom: none; }
+    .overlay {
+    text-align: center;
+    background-color: hsla(0, 0%, 0%, 0.750);
+    padding: 40px;
+    margin-top: 6%;
+    color: white;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="video-background">
+    <source src="https://videos.pexels.com/video-files/5036920/5036920-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video autoplay muted loop class="video-background">
+    <source src="https://videos.pexels.com/video-files/5036920/5036920-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    <source src="path/to/video.webm" type="video/webm">
+    <source src="path/to/video.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
+  <div class="container">
+    <div class="overlay">
+      <div class="confirmation-header">
+        <h1>Thank You for Your Purchase!</h1>
+        <p>Your order has been placed successfully.</p>
+        <i class="fas fa-check-circle fa-3x text-success"></i>
+      </div>
+  
+      <h2>Order Summary</h2>
+      <div id="order-details" class="order-details mt-3"></div>
+      <h4>Total: $<span id="order-total">0</span></h4>
+  
+      <a href="index.html" class="btn btn-primary mt-4">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script> <!-- Font Awesome JS -->
+  <script>
+    // Display order details from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const orderDetailsContainer = document.getElementById('order-details');
+    const orderTotalElement = document.getElementById('order-total');
+    let total = 0;
+
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const orderItem = document.createElement('div');
+      orderItem.classList.add('order-item', 'd-flex', 'justify-content-between', 'align-items-center');
+      orderItem.innerHTML = `
+        <div>
+          <h6>${item.name} (x${item.quantity})</h6>
+          <small>$${item.price} each</small>
+        </div>
+        <div>
+          <strong>$${itemTotal.toFixed(2)}</strong>
+        </div>
+      `;
+      
+      orderDetailsContainer.appendChild(orderItem);
+    });
+
+    orderTotalElement.innerText = total.toFixed(2);
+
+    // Clear cart from localStorage
+    localStorage.removeItem('cart');
+  </script>
+</body>
+</html>
